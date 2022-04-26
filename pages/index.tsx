@@ -7,6 +7,9 @@ import { homeData } from '@data/home.data'
 
 // Components
 import Section from '@components/common/Section'
+import { Hr, Seo, WebDesign, WebDevelopment } from '@components/icons'
+import WebLayout from '@components/icons/WebLayout'
+import Image from 'next/image'
 
 const HomeStyled = styled.div`
 
@@ -89,6 +92,87 @@ const HomeStyled = styled.div`
     }
   }
 
+  .services {
+    .service__wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .services__container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 0 5%;
+    }
+
+    .services__list {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-content: center;
+      align-items: center;
+      gap:  24px;
+    }
+
+    .service {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service__header {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service__title {
+      display: grid;
+      grid-auto-flow: row;
+      gap: 2px;
+      text-transform: uppercase;
+    }
+
+    .services__image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .services__image img {
+      width: 125%;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .service__wrapper {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .services__list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .services__image img {
+        width: 125%;
+        right: -20px;
+      }
+    }
+  }
 `
 
 const Home: React.FC = () => {
@@ -119,6 +203,83 @@ const Home: React.FC = () => {
             <p className='hero__description'>{homeData.hero.description}</p>
             <a href="#service-id" className="hero__button">{homeData.hero.button}</a>
           </div>
+        </div>
+      </Section>
+
+      <Section className="services" classNameWrapper="service__wrapper">
+        <div className="services__container">
+          <h2 data-aos="fade-up-right" className="title__h2">Servicios</h2>
+
+          <div data-aos="fade-up-right" className="services__list">
+            <div className="service">
+              <div className="service__header">
+                <div className="service__title">
+                  <h3 className="title__h3">Diseño Web</h3>
+                  <Hr />
+                </div>
+
+                <WebDesign />
+              </div>
+
+              <p className="service__content">
+                Creamos potentes diseños que superarán a sus competidores más fuertes.
+              </p>
+            </div>
+
+            <div className="service">
+              <div className="service__header">
+                <div className="service__title">
+                  <h3 className="title__h3">Desarrollo Web</h3>
+                  <Hr />
+                </div>
+
+                <WebDevelopment />
+              </div>
+
+              <p className="service__content">
+                Creamos sitios web robustos y funcionales utilizando la tecnología más avanzada disponible.
+              </p>
+            </div>
+
+            <div className="service">
+              <div className="service__header">
+                <div className="service__title">
+                  <h3 className="title__h3">Maquetación</h3>
+                  <Hr />
+                </div>
+
+                <WebLayout />
+              </div>
+
+              <p className="service__content">
+                Estructuramos todas las partes requeridas de tu web al detalle y preocupándonos por el futuro de ese código.
+              </p>
+            </div>
+
+            <div className="service">
+              <div className="service__header">
+                <div className="service__title">
+                  <h3 className="title__h3">Seo</h3>
+                  <Hr />
+                </div>
+
+                <Seo />
+              </div>
+
+              <p className="service__content">
+                Optimizamos el sitio web para un buen Posicionamiento en el motor de búsqueda, ganando mayor visibilidad en el mercado.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up-left" className="services__image">
+          <Image
+            src="/assets/Tablet.png"
+            alt="Tablet"
+            layout="fill"
+            objectFit="contain"
+          />
         </div>
       </Section>
     </HomeStyled>

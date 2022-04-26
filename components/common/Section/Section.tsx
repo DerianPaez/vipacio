@@ -9,16 +9,17 @@ type StyledProps = {
 type Props = {
   children: React.ReactNode
   className?: string
+  classNameWrapper?: string
 }
 
 const SectionStyled = styled.section<StyledProps>`
   padding: 70px 0;
 `
 
-const Section: React.FC<Props> = ({ children, ...props }) => {
+const Section: React.FC<Props> = ({ children, classNameWrapper, ...props }) => {
   return (
     <SectionStyled {...props}>
-      <Wrapper>
+      <Wrapper className={classNameWrapper}>
         {children}
       </Wrapper>
     </SectionStyled>

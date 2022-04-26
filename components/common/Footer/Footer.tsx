@@ -1,58 +1,79 @@
 import * as React from 'react'
-import Link from 'next/link'
 import styled from 'styled-components'
-
-// Helpers
-import { mapLinks } from 'lib/mapLinks'
 
 // Config
 import { Wrapper } from '@config/themeConfig'
 
-// Data
-import { legalLinks } from '@data/legalLinks.data'
-import { navLinks } from '@data/navLinks.data'
-import { Logo } from '@components/icons'
+// Icons
+import { Facebook, Instagram, Logo, WhatsApp } from '@components/icons'
 
 type Props = {
 
 }
 
 const FooterStyled = styled.footer`
-  padding: 20px 0;
-  border-top: 1px solid ${({ theme }) => theme.stroke};
-  background: ${({ theme }) => theme.primary};
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
 
-  .footer__container {
+  .footer__logo {
     display: grid;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
   }
 
-  .footer__title {
-    font-size: 18px;
-    font-weight: 500;
-    color: ${({ theme }) => theme.secundaryLight};
+  .logo {
+    justify-self: center;
+    path {
+      fill: ${({ theme }) => theme.colors.primary};
+    }
   }
 
-  .footer__contentLinks {
+  .footer__content {
+    background-color: ${({ theme }) => theme.colors.primary};
     display: grid;
-    grid-auto-flow: row;
-    grid-auto-rows: max-content;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    text-align: center;
     gap: 10px;
+  }
 
-    ul {
-      display: grid;
-      gap: 6px;
-    }
+  .wrapper {
+    display: grid;
+    gap: 5px;
+  }
 
-    a {
-      color: ${({ theme }) => theme.secundaryDark};
-    }
+  .footer__rights span {
+    line-height: 15px;
+  }
+
+  .footer__rights span {
+    color: white;
+    font-size: .9em;
+  }
+
+  .footer__icons {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
   }
 
   @media (min-width: 768px) {
-    .footer__container {
-      grid-auto-flow: column;
-      grid-auto-columns: 1fr;
+    .footer__content {
+      grid-template-columns: 1fr;
+      justify-content: space-between;
+    }
+
+    .footer__content .wrapper{
+      grid-template-columns: max-content max-content;
+      justify-content: space-between;
     }
   }
 `
@@ -60,23 +81,29 @@ const FooterStyled = styled.footer`
 const Footer: React.FC<Props> = () => {
   return (
     <FooterStyled>
-      <Wrapper>
-        <div className="footer__container">
-          <Logo />
-          <div className="footer__contentLinks">
-            <h3 className="footer__title">Enlaces</h3>
-            <ul>
-              {mapLinks(navLinks)}
-            </ul>
+      <div className="footer__logo">
+        <Logo className="logo" />
+      </div>
+
+      <div className="footer__content">
+        <Wrapper className="wrapper">
+          <div className="footer__rights">
+            <span>© 2022 Copyright Vipacio All rights reserved</span>
           </div>
-          <div className="footer__contentLinks">
-            <h3 className="footer__title">Legal</h3>
-            <ul>
-              {mapLinks(legalLinks)}
-            </ul>
+
+          <div className="footer__icons">
+            <a href="https://www.facebook.com/Vipacio/" target="_blank" rel="noopener noreferrer">
+              <Facebook />
+            </a>
+            <a href="https://www.instagram.com/vipacio/" target="_blank" rel="noopener noreferrer">
+              <Instagram />
+            </a>
+            <a href="https://" target="_blank" rel="noopener noreferrer">
+              <WhatsApp />
+            </a>
           </div>
-        </div>
-      </Wrapper>
+        </Wrapper>
+      </div>
     </FooterStyled>
   )
 }
