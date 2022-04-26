@@ -11,9 +11,7 @@ import { Wrapper } from '@config/themeConfig'
 // Data
 import { legalLinks } from '@data/legalLinks.data'
 import { navLinks } from '@data/navLinks.data'
-
-// Components
-import Logo from '../Logo'
+import { Logo } from '@components/icons'
 
 type Props = {
 
@@ -64,7 +62,7 @@ const Footer: React.FC<Props> = () => {
     <FooterStyled>
       <Wrapper>
         <div className="footer__container">
-          <Logo className="footer__logo"/>
+          <Logo />
           <div className="footer__contentLinks">
             <h3 className="footer__title">Enlaces</h3>
             <ul>

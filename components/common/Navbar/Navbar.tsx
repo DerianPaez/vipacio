@@ -4,109 +4,89 @@ import styled from 'styled-components'
 // Data
 import { navLinks } from '@data/navLinks.data'
 
-// Config
-import { Wrapper } from '@config/themeConfig'
-
-// Icoons
-import Menu from '@components/icons/Menu'
-
 // Components
-import Logo from '@components/common/Logo'
-import Navlink from '@components/common/Navlink'
-import Button from '@components/common/Button'
+import { Navlink } from '@components/common'
+
+// Hooks
+import useUi from '@hooks/useUi';
 
 type StyledProps = {
-  isOpenSidebar: boolean
+  isOpen: boolean
 }
 
-const NavbarStyled = styled.header<StyledProps>`
-  width: 100%;
+const NavbarStyled = styled.nav<StyledProps>`
+  display: ${({ isOpen }) => isOpen ? 'grid' : 'none'};
   position: fixed;
-  background-color: ${({ theme }) => theme.primary};
-  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-color: ${({ theme }) => theme.colors.primary};
 
-  .header__container {
+  .navbar__container {
+    height: 100%;
     display: grid;
-    grid-template-columns: max-content max-content;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
   }
 
-  .menu__nav {
-    display: ${({ isOpenSidebar }) => isOpenSidebar ? 'grid' : 'none'};
-    padding: 0 3%;
-    position: fixed;
-    top: 64px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: ${({ theme }) => theme.primary};
-    ul {
-      height: max-content;
-      display: grid;
-      grid-auto-rows: max-content;
-      gap: 20px;
-      margin-top: 40px;
-    }
-  }
-
-  .menu__hamburguer {
-    display: flex;
-    justify-content: center;
+  ul {
+    height: max-content;
+    display: grid;
+    grid-auto-rows: max-content;
+    gap: 15px;
+    text-align: center;
     align-self: center;
+    margin-bottom: 42px;
   }
 
-  @media (min-width: 768px) {
-    .menu__nav {
-      position: static;
-      display: grid;
-      padding: 0;
-      ul {
-        grid-auto-flow: column;
-        margin-top: 0px;
+  @media (min-width: 1024px) {
+    width: 100%;
+    display: grid;
+    position: static;
+    top: 0;
+    background-color: transparent;
+    z-index: 0;
 
-      }
+    .navbar__container {
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      justify-content: space-between;
+      align-items: center;
+      grid-template-rows: auto;
     }
 
-    .menu__hamburguer {
-      display: none;
+    ul {
+      width: 100%;
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      margin-top: 0;
+      margin-bottom: 0;
+      gap: 25px;
     }
   }
 `
 
-const Navbar: React.FC= () => {
-  const [isOpenSidebar, setIsOpenSidebar] = React.useState(false)
-  const toggleSideBar = () => setIsOpenSidebar(c => !c)
+const Navbar: React.FC = () => {
+  const { isSidebarOpen, toogleSidebar } = useUi()
 
   return (
-    <NavbarStyled isOpenSidebar={isOpenSidebar}>
-      <Wrapper>
-        <div className="header__container">
-          <Logo />
-          <nav className="menu__nav">
-            <ul>
-              {navLinks.map((link) => {
-                return (
-                  <Navlink
-                    key={link.id}
-                    id={link.id}
-                    name={link.name}
-                    url={link.url}
-                    toggleSidebar={toggleSideBar}
-                  />
-                )
-              })}
-            </ul>
-          </nav>
-          <Button
-            className="menu__hamburguer"
-            onClick={toggleSideBar}
-          >
-            <Menu />
-          </Button>
-        </div>
-      </Wrapper>
+    <NavbarStyled isOpen={isSidebarOpen}>
+      <div className="navbar__container">
+        <ul>
+          {navLinks.map((link) => {
+            return (
+              <Navlink
+                key={link.id}
+                id={link.id}
+                name={link.name}
+                url={link.url}
+                isSidebarOpen={isSidebarOpen}
+                toggleSidebar={toogleSidebar}
+              />
+            )
+          })}
+        </ul>
+      </div>
     </NavbarStyled>
   )
 }

@@ -15,27 +15,37 @@ export type NavLinkType = {
 export const navLinks = [
   {
     id: '001',
-    name: 'Home',
+    name: 'Inicio',
     url: '/'
   },
   {
     id: '002',
-    name: 'About',
-    url: '/about'
+    name: 'Servicios',
+    url: '/servicios'
   },
   {
     id: '003',
-    name: 'Services',
-    url: '/services'
+    name: 'Nosotros',
+    url: '/nosotros'
   },
   {
     id: '004',
-    name: 'Projects',
-    url: '/projects'
+    name: 'Tecnologías',
+    url: '/tegnologias'
   },
   {
     id: '005',
-    name: 'Contact',
-    url: '/contact'
+    name: 'Portafolio',
+    url: '/portafolio'
+  },
+  {
+    id: '006',
+    name: 'Precios',
+    url: '/precios'
+  },
+  {
+    id: '007',
+    name: 'Contáctanos',
+    url: '/contacto'
   },
 ]

@@ -30,6 +30,12 @@
       "@data/*": [
         "data/*"
       ],
+      "@state/*": [
+        "state/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
     },
     "incremental": true
   },

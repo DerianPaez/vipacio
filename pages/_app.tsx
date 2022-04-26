@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Provider } from 'react-redux'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 
@@ -6,26 +7,26 @@ import { ThemeProvider } from 'styled-components'
 import '@assets/globals.css'
 import '@assets/chrome-bug.css'
 
+// Redux
+import { initStore } from '@state/store'
+
 // Config
 import { defaultTheme } from '@config/themeConfig'
 
 // Components
-import Head from '@components/common/Head'
-import Layout from '@components/common/Layout'
-
-type Props = {
-  children?: React.ReactNode
-}
+import { Head, Layout } from '@components/common'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-
+  const store = initStore()
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Head />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={defaultTheme}>
+        <Head />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </Provider>
   )
 }
 

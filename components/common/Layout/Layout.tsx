@@ -1,25 +1,29 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import Navbar from '@components/common/Navbar'
-import Footer from '@components/common/Footer'
+// Components
+import { Header, Footer } from '@components/common/'
+
+// Hooks
+import useUi from '@hooks/useUi'
+
+type StyledProps = {
+  isSidebarOpen: boolean
+}
 
 type Props = {
   children: React.ReactNode,
 }
 
-const LayoutStyles = styled.div`
-  min-height: 100vh;
+const LayoutStyles = styled.div<StyledProps>`
 
-  main {
-    padding-top: 64px;
-  }
 `
 
 const Layout: React.FC<Props> = ({ children }) => {
+  const { isSidebarOpen } = useUi()
   return (
-    <LayoutStyles>
-      <Navbar />
+    <LayoutStyles isSidebarOpen={isSidebarOpen}>
+      <Header />
       <main>{children}</main>
       <Footer />
     </LayoutStyles>
