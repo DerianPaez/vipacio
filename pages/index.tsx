@@ -206,7 +206,11 @@ const Home: React.FC = () => {
         </div>
       </Section>
 
-      <Section className="services" classNameWrapper="service__wrapper">
+      <Section className="aboutUs">
+        <div className="aboutUs__container"></div>
+      </Section>
+
+      <Section className="services">
         <div className="services__container">
           <h2 data-aos="fade-up-right" className="title__h2">Servicios</h2>
 
@@ -281,6 +285,26 @@ const Home: React.FC = () => {
             objectFit="contain"
           />
         </div>
+      </Section>
+
+      <Section className="publicity">
+        <div className="publicity__container"></div>
+      </Section>
+
+      <Section className="processWork">
+        <div className="processWork__container"></div>
+      </Section>
+
+      <Section className="prices">
+        <div className="prices__container"></div>
+      </Section>
+
+      <Section className="portfolio">
+        <div className="portfolio__container"></div>
+      </Section>
+
+      <Section className="contact">
+        <div className="contact__container"></div>
       </Section>
     </HomeStyled>
   )

@@ -16,10 +16,10 @@ const SectionStyled = styled.section<StyledProps>`
   padding: 70px 0;
 `
 
-const Section: React.FC<Props> = ({ children, classNameWrapper, ...props }) => {
+const Section: React.FC<Props> = ({ children, ...props }) => {
   return (
     <SectionStyled {...props}>
-      <Wrapper className={classNameWrapper}>
+      <Wrapper>
         {children}
       </Wrapper>
     </SectionStyled>
