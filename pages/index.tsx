@@ -92,6 +92,8 @@ const HomeStyled = styled.div`
     }
   }
 
+  .aboutUs {}
+
   .services {
     .service__wrapper {
       display: grid;
@@ -173,6 +175,16 @@ const HomeStyled = styled.div`
       }
     }
   }
+
+  .publicity {}
+
+  .processWork {}
+
+  .prices {}
+
+  .portfolio {}
+
+  .contact {}
 `
 
 const Home: React.FC = () => {
