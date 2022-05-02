@@ -32,6 +32,17 @@ const NavlinkStyled = styled.li`
 `
 
 const Navlink: React.FC<Props> = ({ id, name, url, toggleSidebar, isSidebarOpen }) => {
+
+  if(url.includes('#')) {
+    return (
+      <NavlinkStyled id={id} onClick={() => toggleSidebar(isSidebarOpen)}>
+          <a href={url} aria-label={name}>
+            {name}
+          </a>
+      </NavlinkStyled>
+    )
+  }
+
   return (
     <NavlinkStyled id={id} onClick={() => toggleSidebar(isSidebarOpen)}>
       <Link href={url}>

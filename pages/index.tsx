@@ -112,7 +112,7 @@ const HomeStyled = styled.div`
 
     .aboutUs__main {
       display: grid;
-      gap: 20px;
+      gap: 30px;
     }
 
     .aboutUs__values {
@@ -131,7 +131,11 @@ const HomeStyled = styled.div`
       display: grid;
       grid-auto-flow: row;
       grid-auto-rows: max-content;
-      gap: -5px;
+      text-transform: uppercase;
+
+      h3 {
+        font-size: 16px;
+      }
     }
 
     .value__text {
@@ -142,6 +146,7 @@ const HomeStyled = styled.div`
       position: relative;
       height: 100%;
       min-height: 250px;
+      width: 100%;
       height: 100%;
       grid-area: image;
     }
@@ -169,83 +174,64 @@ const HomeStyled = styled.div`
   }
 
   .services {
-    .service__wrapper {
+    .services__container {
       display: grid;
-      grid-template-columns: 1fr;
       justify-content: center;
       align-items: center;
       gap: 20px;
-      overflow: hidden;
-      padding: 0;
     }
 
-    .services__container {
-      width: 100%;
+    .services__content {
       display: grid;
-      grid-template-columns: 1fr;
-      justify-content: center;
-      align-items: center;
       gap: 30px;
-      padding: 0 5%;
     }
 
     .services__list {
       display: grid;
       grid-template-columns: 1fr;
       justify-content: center;
-      align-items: center;
-      gap:  24px;
+      gap:  20px;
     }
 
     .service {
       display: grid;
-      grid-template-columns: 1fr;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .service__header {
-      display: grid;
-      grid-template-columns: auto auto;
-      justify-content: flex-start;
+      grid-auto-flow: row;
+      grid-auto-rows: max-content;
       align-items: center;
       gap: 10px;
     }
 
     .service__title {
       display: grid;
+      grid-auto-rows: max-content;
       grid-auto-flow: row;
-      gap: 2px;
       text-transform: uppercase;
+
+      h3 {
+        font-size: 16px;
+      }
     }
 
     .services__image {
       position: relative;
       width: 100%;
       height: 100%;
-      min-height: 300px;
-      display: grid;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .services__image img {
-      width: 125%;
-      position: relative;
+      min-height: 250px;
     }
 
     @media (min-width: 768px) {
-      .service__wrapper {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .services__list {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .services__image img {
-        width: 125%;
-        right: -20px;
+      .services__image {
+        min-height: 350px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .services__container {
+        grid-template-columns: 1fr 1fr;
       }
     }
   }
@@ -293,7 +279,7 @@ const Home: React.FC = () => {
         </div>
       </Section>
 
-      <Section className="aboutUs">
+      <Section id="nosotros" className="aboutUs">
         <div className="aboutUs__container">
           <div className="aboutUs__content">
             <div className="aboutUs__main">
@@ -334,80 +320,37 @@ const Home: React.FC = () => {
         </div>
       </Section>
 
-      <Section className="services">
+      <Section id="servicios" className="services">
         <div className="services__container">
-          <h2 data-aos="fade-up-right" className="title__h2">Servicios</h2>
+          <div className="services__content">
+            <h2 data-aos="fade-up-right" className="title__h2">Servicios</h2>
 
-          <div data-aos="fade-up-right" className="services__list">
-            <div className="service">
-              <div className="service__header">
-                <div className="service__title">
-                  <h3 className="title__h3">Diseño Web</h3>
-                  <Hr />
-                </div>
-
-                <WebDesign />
-              </div>
-
-              <p className="service__content">
-                Creamos potentes diseños que superarán a sus competidores más fuertes.
-              </p>
-            </div>
-
-            <div className="service">
-              <div className="service__header">
-                <div className="service__title">
-                  <h3 className="title__h3">Desarrollo Web</h3>
-                  <Hr />
-                </div>
-
-                <WebDevelopment />
-              </div>
-
-              <p className="service__content">
-                Creamos sitios web robustos y funcionales utilizando la tecnología más avanzada disponible.
-              </p>
-            </div>
-
-            <div className="service">
-              <div className="service__header">
-                <div className="service__title">
-                  <h3 className="title__h3">Maquetación</h3>
-                  <Hr />
-                </div>
-
-                <WebLayout />
-              </div>
-
-              <p className="service__content">
-                Estructuramos todas las partes requeridas de tu web al detalle y preocupándonos por el futuro de ese código.
-              </p>
-            </div>
-
-            <div className="service">
-              <div className="service__header">
-                <div className="service__title">
-                  <h3 className="title__h3">Seo</h3>
-                  <Hr />
-                </div>
-
-                <Seo />
-              </div>
-
-              <p className="service__content">
-                Optimizamos el sitio web para un buen Posicionamiento en el motor de búsqueda, ganando mayor visibilidad en el mercado.
-              </p>
+            <div data-aos="fade-up-right" className="services__list">
+              {homeData.services.serviceList.map((service) => {
+                return (
+                  <div key={service.id} className="service">
+                    <div className="service__title">
+                      <h3 className="title__h3">{service.name}</h3>
+                      <Hr />
+                    </div>
+                    <p className="service__content">{service.text}</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
-        </div>
 
-        <div data-aos="fade-up-left" className="services__image">
-          <Image
-            src="/assets/Tablet.png"
-            alt="Tablet"
-            layout="fill"
-            objectFit="contain"
-          />
+          <div data-aos="fade-up-left" className="services__image">
+            {homeData.services.image &&
+              <Image
+                src={homeData.services.image.url}
+                alt={homeData.services.image.alt}
+                layout="fill"
+                objectFit="contain"
+                priority={false}
+              />
+            }
+          </div>
         </div>
       </Section>
 
@@ -419,15 +362,15 @@ const Home: React.FC = () => {
         <div className="processWork__container"></div>
       </Section>
 
-      <Section className="prices">
+      <Section id="precios" className="prices">
         <div className="prices__container"></div>
       </Section>
 
-      <Section className="portfolio">
+      <Section id="portafolio" className="portfolio">
         <div className="portfolio__container"></div>
       </Section>
 
-      <Section className="contact">
+      <Section id="contacto" className="contact">
         <div className="contact__container"></div>
       </Section>
     </HomeStyled>

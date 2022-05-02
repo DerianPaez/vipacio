@@ -28,5 +28,35 @@ export const homeData = {
       url: "/assets/AboutUs.png",
       alt: "Sobre Vipacio"
     }
+  },
+
+  services: {
+    title: "Servicios",
+    serviceList: [
+      {
+        id: "001",
+        name: "Diseño web",
+        text: "Creamos potentes diseños que superarán a sus competidores más fuertes.",
+      },
+      {
+        id: "002",
+        name: "Desarrollo web",
+        text: "Creamos sitios web robustos y funcionales utilizando la tecnología más avanzada disponible.",
+      },
+      {
+        id: "003",
+        name: "Maquetación",
+        text: "Estructuramos todas las partes requeridas de tu web al detalle y preocupándonos por el futuro de ese código.",
+      },
+      {
+        id: "004",
+        name: "SEO",
+        text: "Optimizamos el sitio web para un buen Posicionamiento en el motor de búsqueda, ganando mayor visibilidad en el mercado.",
+      },
+    ],
+    image: {
+      url: "/assets/Services.png",
+      alt: "Servicios Vipacio"
+    }
   }
 }

@@ -8,12 +8,13 @@ type StyledProps = {
 
 type Props = {
   children: React.ReactNode
+  id?: string
   className?: string
   classNameWrapper?: string
 }
 
 const SectionStyled = styled.section<StyledProps>`
-  padding: 70px 0;
+  margin-bottom: 90px;
 `
 
 const Section: React.FC<Props> = ({ children, ...props }) => {

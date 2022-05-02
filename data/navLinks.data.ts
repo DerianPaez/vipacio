@@ -16,36 +16,31 @@ export const navLinks = [
   {
     id: '001',
     name: 'Inicio',
-    url: '/'
+    url: '/#'
   },
   {
     id: '002',
-    name: 'Servicios',
-    url: '/servicios'
+    name: 'Nosotros',
+    url: '/#nosotros'
   },
   {
     id: '003',
-    name: 'Nosotros',
-    url: '/nosotros'
+    name: 'Servicios',
+    url: '/#servicios'
   },
   {
     id: '004',
-    name: 'Tecnologías',
-    url: '/tegnologias'
+    name: 'Precios',
+    url: '/#precios'
   },
   {
     id: '005',
     name: 'Portafolio',
-    url: '/portafolio'
-  },
-  {
-    id: '006',
-    name: 'Precios',
-    url: '/precios'
+    url: '/#portafolio'
   },
   {
     id: '007',
     name: 'Contáctanos',
-    url: '/contacto'
+    url: '/#contacto'
   },
 ]
