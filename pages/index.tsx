@@ -1,23 +1,24 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import Image from 'next/image'
 import Typed from 'typed.js'
 
 // Data
 import { homeData } from '@data/home.data'
 
+// Icons
+import { Hr, Seo, WebDesign, WebDevelopment, WebLayout } from '@components/icons'
+
 // Components
-import Section from '@components/common/Section'
-import { Hr, Seo, WebDesign, WebDevelopment } from '@components/icons'
-import WebLayout from '@components/icons/WebLayout'
-import Image from 'next/image'
+import { Section } from '@components/common'
 
 const HomeStyled = styled.div`
 
   .hero {
-    background-image: url(/assets/Hero.jpg);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(/assets/Hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 40% 60%;
+    background-position: center;
     height: 100vh;
     display: grid;
     align-items: center;
@@ -92,7 +93,80 @@ const HomeStyled = styled.div`
     }
   }
 
-  .aboutUs {}
+  .aboutUs {
+    .aboutUs__container {
+      display: grid;
+      grid-template-areas:
+        "content"
+        "image";
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .aboutUs__content {
+      display: grid;
+      grid-area: content;
+      gap: 20px;
+    }
+
+    .aboutUs__main {
+      display: grid;
+      gap: 20px;
+    }
+
+    .aboutUs__values {
+      display: grid;
+      gap: 20px;
+    }
+
+    .value {
+      display: grid;
+      grid-auto-flow: row;
+      grid-auto-rows: max-content;
+      gap: 10px;
+    }
+
+    .value__title {
+      display: grid;
+      grid-auto-flow: row;
+      grid-auto-rows: max-content;
+      gap: -5px;
+    }
+
+    .value__text {
+      font-size: 14px;
+    }
+
+    .aboutUs__image {
+      position: relative;
+      height: 100%;
+      min-height: 250px;
+      height: 100%;
+      grid-area: image;
+    }
+
+    @media (min-width: 425px) {
+      .aboutUs__values {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .aboutUs__image {
+        min-height: 350px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .aboutUs__container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "image content";
+      }
+    }
+  }
 
   .services {
     .service__wrapper {
@@ -206,6 +280,7 @@ const Home: React.FC = () => {
       typed.destroy()
     }
   }, [])
+
   return (
     <HomeStyled>
       <Section className="hero">
@@ -219,7 +294,44 @@ const Home: React.FC = () => {
       </Section>
 
       <Section className="aboutUs">
-        <div className="aboutUs__container"></div>
+        <div className="aboutUs__container">
+          <div className="aboutUs__content">
+            <div className="aboutUs__main">
+              <h2 className="aboutUs__h2">{homeData.aboutUs.title}</h2>
+              <div className="aboutUs__text">
+                <p>{homeData.aboutUs.text[0]}</p>
+                <br />
+                <p>{homeData.aboutUs.text[1]}</p>
+              </div>
+            </div>
+
+            <div className="aboutUs__values">
+              {homeData.aboutUs.values.map((value) => {
+                return (
+                  <div key={value.id} className="value">
+                    <div className="value__title">
+                      <h3 className="value__h3">{value.name}</h3>
+                      <Hr />
+                    </div>
+                    <p className="value__text">{value.text}</p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
+          <figure className="aboutUs__image">
+            {homeData.aboutUs.image &&
+              <Image
+                src={homeData.aboutUs.image.url}
+                alt={homeData.aboutUs.image.alt}
+                layout="fill"
+                objectFit="contain"
+                priority={false}
+              />
+            }
+          </figure>
+        </div>
       </Section>
 
       <Section className="services">
