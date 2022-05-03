@@ -13,22 +13,19 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const ButtonStyled = styled.button<ButtonProps>`
-  font-size: 18px;
-  font-weight: 500;
-  border-radius: 8px;
-  padding: 12px 30px;
+  background-color: transparent;
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: 600;
+  border: 2px solid ${({ theme }) => theme.colors.accent};
   outline: none;
-  border: none;
   cursor: pointer;
-  box-shadow: 0px 4px 8px 0px rgba(0, 49, 16, 0.35);
-  color: ${({ theme }) => theme.colors.secundaryLight};
-  width: ${({ width }) => width ? `${width}px` : 'max-content'};
-  background-color: ${({ theme }) => theme.colors.primary};
-  overflow: hidden;
-  transition: background-color .2s;
+  transition: .2s;
+  text-transform: uppercase;
+  width: max-content;
+  padding: 10px 25px;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.secundaryDark};
+    background-color: ${({ theme }) => theme.colors.accent};
   }
 `
 
@@ -43,6 +40,25 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   onClick,
 }) => {
+
+  if(href?.includes('#')) {
+    return (
+      <a href={href}>
+        <ButtonStyled
+          aria-pressed={active}
+          className={className}
+          disabled={disabled}
+          width={width}
+          type={type}
+          loading={loading}
+          href={href}
+          onClick={onClick}
+        >
+          {children}
+        </ButtonStyled>
+      </a>
+    )
+  }
   return (
     <ButtonStyled
       aria-pressed={active}

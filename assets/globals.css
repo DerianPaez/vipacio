@@ -23,6 +23,9 @@ body {
 a {
   color: #000000;
   text-decoration: none;
+  width: min-content;
+  justify-self: center;
+  display: block;
 }
 
 li {

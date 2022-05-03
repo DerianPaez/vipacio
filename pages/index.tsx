@@ -7,10 +7,10 @@ import Typed from 'typed.js'
 import { homeData } from '@data/home.data'
 
 // Icons
-import { Hr, Seo, WebDesign, WebDevelopment, WebLayout } from '@components/icons'
+import { Hr } from '@components/icons'
 
 // Components
-import { Section } from '@components/common'
+import { Button, Section } from '@components/common'
 
 const HomeStyled = styled.div`
 
@@ -25,6 +25,7 @@ const HomeStyled = styled.div`
 
     .hero__content {
       display: grid;
+      justify-content: center;
       gap: 10px;
     }
 
@@ -32,6 +33,15 @@ const HomeStyled = styled.div`
       font-size: 1.8em;
       color: ${({ theme }) => theme.colors.secundaryLight};
       line-height: 1em;
+    }
+
+    .hero__button {
+      justify-self: center;
+      color: ${({ theme }) => theme.colors.secundaryLight};
+
+      &:hover {
+        color: ${({ theme }) => theme.colors.black};
+      }
     }
 
     .typed {
@@ -48,18 +58,6 @@ const HomeStyled = styled.div`
 
     .hero__description {
       color: ${({ theme }) => theme.colors.secundaryLight};
-    }
-
-    .hero__button {
-      background-color: transparent;
-      color: ${({ theme }) => theme.colors.secundaryLight};
-      border: 2px solid ${({ theme }) => theme.colors.accent};
-      padding: 0px 15px;
-      outline: none;
-      cursor: pointer;
-      transition: .2s;
-      text-transform: uppercase;
-      width: max-content;
     }
 
     @media (min-width: 768px) {
@@ -236,7 +234,31 @@ const HomeStyled = styled.div`
     }
   }
 
-  .publicity {}
+  .publicity {
+    background-position: top right;
+    background-image: url(/assets/BackgroundPublicity.png);
+    padding: 70px 0;
+
+    .publicity__container {
+      display: grid;
+      gap: 10px;
+    }
+
+    h2 {
+      color: ${({ theme }) => theme.colors.secundaryLight};
+    }
+
+    a {
+      justify-self: flex-start;
+      button {
+        color: ${({ theme }) => theme.colors.secundaryLight};
+
+        &:hover {
+          color: ${({ theme }) => theme.colors.black};
+        }
+      }
+    }
+  }
 
   .processWork {}
 
@@ -274,7 +296,7 @@ const Home: React.FC = () => {
           <div className="hero__content">
             <h2 className='hero__title'>{homeData.hero.headline} <span className="typed" ref={el}></span></h2>
             <p className='hero__description'>{homeData.hero.description}</p>
-            <a href="#service-id" className="hero__button">{homeData.hero.button}</a>
+            <Button href="#servicios" className="hero__button">{homeData.hero.button}</Button>
           </div>
         </div>
       </Section>
@@ -355,7 +377,10 @@ const Home: React.FC = () => {
       </Section>
 
       <Section className="publicity">
-        <div className="publicity__container"></div>
+        <div className="publicity__container">
+          <h2>{homeData.publicity.title}</h2>
+          <Button href={homeData.publicity.button.url}>{homeData.publicity.button.text}</Button>
+        </div>
       </Section>
 
       <Section className="processWork">

@@ -58,5 +58,110 @@ export const homeData = {
       url: "/assets/Services.png",
       alt: "Servicios Vipacio"
     }
+  },
+
+  publicity: {
+    title: "¡Comencemos Tu Proyecto!",
+    button: {
+      text: "contáctanos",
+      url: "/#contacto"
+    },
+    background: "/assets/BackgroundPublicity",
+  },
+
+  processWork: {
+    title: "¿Cómo trabajamos?",
+    processList: [
+      {
+        id: "001",
+        title: "1. Recopilación de información",
+        text: "Se necesita una buena comprensión de cual es el objetivo del sitio web."
+      },
+      {
+        id: "002",
+        title: "2. Planificación",
+        text: "Se define la estructura del sitio web dando prioridad a los objetivos generales."
+      },
+      {
+        id: "003",
+        title: "3. Diseño",
+        text: "Se determina cual será la apariencia de su sitio web."
+      },
+      {
+        id: "004",
+        title: "4. Maquetación",
+        text: ""
+      },
+      {
+        id: "005",
+        title: "5. Desarrollo",
+        text: "Se hace uso de tecnologías de software para agregar interacción al sitio web."
+      },
+      {
+        id: "006",
+        title: "6. Prueba y Lanzamiento",
+        text: "Prueba completa de funcionalidad y lanzamiento del producto final."
+      },
+    ]
+  },
+
+  prices: {
+    title: "Precios",
+
+    pricesList: [
+      {
+        id: "001",
+        title: "Landing Page",
+        price: "$249",
+        items: [
+          "Página Vertical",
+          "Diseño personalizado",
+          "Diseño adaptable a dispositivos moviles",
+          "Formulario de contacto",
+          "Integración de Redes Sociales",
+          "Mapa de ubicación",
+          "Hosting Gratis - 1 año",
+          "Dominio (.com - .net - .org) Gratis - 1 año",
+          "SSL - Secure Sockets Layer",
+          "SEO (Search Engine Optimización)"
+        ]
+      },
+      {
+        id: "002",
+        title: "Básico",
+        price: "$399",
+        items: [
+          "5 Páginas",
+          "Diseño personalizado",
+          "Diseño adaptable a dispositivos moviles",
+          "Formulario de contacto",
+          "Integración de Redes Sociales WhatsApp & Messenger",
+          "Mapa de ubicación",
+          "Hosting Gratis - 1 año",
+          "Dominio (.com - .net - .org) Gratis - 1 año",
+          "SSL - Secure Sockets Layer",
+          "SEO (Search Engine Optimización)"
+        ]
+      },
+      {
+        id: "003",
+        title: "Avanzado",
+        price: "$499",
+        items: [
+          "Páginas Dinamicas",
+          "Diseño personalizado",
+          "Diseño adaptable a dispositivos moviles",
+          "Formulario de contacto",
+          "Integración de Redes Sociales WhatsApp & Messenger",
+          "Sección de productos",
+          "Ventas por WhatsApp",
+          "Mapa de ubicación",
+          "Hosting Gratis - 1 año",
+          "Dominio (.com - .net - .org) Gratis - 1 año",
+          "SSL - Secure Sockets Layer",
+          "SEO (Search Engine Optimización)"
+        ]
+      },
+    ]
   }
 }
