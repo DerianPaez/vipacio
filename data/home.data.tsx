@@ -90,7 +90,7 @@ export const homeData = {
       {
         id: "004",
         title: "4. Maquetación",
-        text: ""
+        text: "Se transforma el diseño del sitio web para que los navegadores puedan interpretarlos."
       },
       {
         id: "005",
@@ -102,7 +102,11 @@ export const homeData = {
         title: "6. Prueba y Lanzamiento",
         text: "Prueba completa de funcionalidad y lanzamiento del producto final."
       },
-    ]
+    ],
+    image: {
+      url: "/assets/ProcessWork.png",
+      alt: "Proceso de trabajo vipacio"
+    }
   },
 
   prices: {

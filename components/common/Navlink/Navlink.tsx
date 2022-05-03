@@ -11,6 +11,8 @@ type Props = {
 }
 
 const NavlinkStyled = styled.li`
+  justify-self: center;
+
   a {
     font-size: 16px;
     color: ${({ theme }) => theme.colors.secundaryLight};

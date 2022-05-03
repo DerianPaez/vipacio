@@ -260,7 +260,96 @@ const HomeStyled = styled.div`
     }
   }
 
-  .processWork {}
+  .processWork {
+    .processWork__container {
+      display: grid;
+      grid-template-areas:
+        "title"
+        "left"
+        "right"
+        "center";
+      gap: 20px;
+    }
+
+    .processWork__title { grid-area: title }
+    .processWork__left { grid-area: left }
+    .processWork__center { grid-area: center }
+    .processWork__right { grid-area: right }
+
+    .processWork__title {
+      text-align: center;
+    }
+
+    .processWork__left,
+    .processWork__right {
+      display: grid;
+      gap: 20px;
+    }
+
+    .processWork__center {
+      position: relative;
+      min-height: 550px;
+      height: 100%;
+    }
+
+    .process {
+      display: grid;
+      gap: 5px;
+    }
+
+    .process__header {
+      display: grid;
+      grid-auto-flow: row;
+      grid-auto-rows: max-content;
+    }
+
+    .process__header h3 {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    @media (min-width: 768px) {
+      .processWork__container {
+        grid-template-areas:
+          "title title title"
+          "left center right";
+        grid-template-columns: .7fr 300px .7fr;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .processWork__center {
+        max-width: 300px;
+      }
+
+      .processWork__left,
+      .processWork__right {
+        max-width: 300px;
+        display: grid;
+        gap: 30px;
+      }
+
+      .processWork__left {
+        justify-self: right;
+        text-align: right;
+        svg {
+          justify-self: flex-end;
+        }
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .processWork__container {
+        gap: 40px;
+      }
+
+      .processWork__left,
+      .processWork__right {
+        gap: 50px;
+      }
+    }
+  }
 
   .prices {}
 
@@ -384,7 +473,46 @@ const Home: React.FC = () => {
       </Section>
 
       <Section className="processWork">
-        <div className="processWork__container"></div>
+        <div className="processWork__container">
+          <h2 className="processWork__title">{homeData.processWork.title}</h2>
+          <div className="processWork__left">
+            {homeData.processWork.processList.slice(0, 3).map((process) => {
+              return (
+                <div key={process.id} className="process">
+                  <div className="process__header">
+                    <h3>{process.title}</h3>
+                    <Hr />
+                  </div>
+                  <p className="process__text">{process.text}</p>
+                </div>
+              )
+            })}
+          </div>
+          <div className="processWork__center">
+            {homeData.processWork.image &&
+              <Image
+                src={homeData.processWork.image.url}
+                alt={homeData.processWork.image.alt}
+                layout="fill"
+                objectFit="contain"
+                priority={false}
+              />
+            }
+          </div>
+          <div className="processWork__right">
+            {homeData.processWork.processList.slice(3).map((process) => {
+              return (
+                <div key={process.id} className="process">
+                  <div className="process__header">
+                    <h3>{process.title}</h3>
+                    <Hr />
+                  </div>
+                  <p className="process__text">{process.text}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </Section>
 
       <Section id="precios" className="prices">
