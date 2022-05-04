@@ -268,7 +268,7 @@ const HomeStyled = styled.div`
         "left"
         "right"
         "center";
-      gap: 20px;
+      gap: 30px;
     }
 
     .processWork__title { grid-area: title }
@@ -351,9 +351,104 @@ const HomeStyled = styled.div`
     }
   }
 
-  .prices {}
+  .prices {
+    .prices__container {
+      display: grid;
+      gap: 30px;
+    }
 
-  .portfolio {}
+    .prices__list {
+      display: grid;
+      gap: 30px;
+    }
+
+    .price {
+      height: max-content;
+      display: grid;
+      grid-auto-flow: row;
+      grid-auto-rows: max-content;
+      gap: 30px;
+      padding: 30px 20px;
+      background: ${({ theme }) => theme.colors.secundaryLight};
+      box-shadow: 0px 4px 24px 0px #00000040;
+    }
+
+    .price__title {
+      font-size: 18px;
+    }
+
+    .price__item {
+      display: flex;
+      flex-direction: column;
+      font-size: 45px;
+      font-weight: bold;
+      line-height: 1em;
+      margin-top: 10px;
+    }
+
+    .price__item span {
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 20px;
+      color: var(--gray-color);
+    }
+
+    .price__features {
+      display: grid;
+      grid-auto-flow: row;
+      grid-auto-rows: max-content;
+      gap: 10px;
+    }
+
+    .price__features li {
+      list-style: disc;
+      margin-left: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .prices__title {
+        text-align: center;
+      }
+
+      .prices__list {
+        justify-content: center;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(150px, 300px);
+      }
+    }
+  }
+
+  .portfolio {
+    .portfolio__container {
+      display: grid;
+      gap: 30px;
+    }
+
+    .portfolio__title {
+      text-align: center;
+    }
+
+    .portfolio__list {
+      display: grid;
+      gap: 20px;
+    }
+
+    .project {
+      position: relative;
+      display: block;
+      width: 100%;
+
+      a {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .portfolio__list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
 
   .contact {}
 `
@@ -516,11 +611,56 @@ const Home: React.FC = () => {
       </Section>
 
       <Section id="precios" className="prices">
-        <div className="prices__container"></div>
+        <div className="prices__container">
+          <h2 className="prices__title">{homeData.prices.title}</h2>
+          <div className="prices__list">
+            {homeData.prices.pricesList.map((price) => {
+              return (
+                <article key={price.id} className="price">
+                  <div className="price__header">
+                    <h3 className="price__title">{price.title}</h3>
+                    <p className="price__item"><span>desde</span>{price.price}</p>
+                  </div>
+
+                  <ul className="price__features">
+                    {price.items.map((item) => {
+                      return (
+                        <li key={item.id}>{item.text}</li>
+                      )
+                    })}
+                  </ul>
+                  <Button>Consultar</Button>
+                </article>
+              )
+            })}
+          </div>
+        </div>
       </Section>
 
       <Section id="portafolio" className="portfolio">
-        <div className="portfolio__container"></div>
+        <div className="portfolio__container">
+          <h2 className="portfolio__title">{homeData.portfolio.title}</h2>
+
+          <div className="portfolio__list">
+            {homeData.portfolio.projectList.map((project) => {
+              return (
+                <div key={project.id} className="project">
+                  <a href={project.link} target="_blank" rel="noreferrer">
+                    {project.image &&
+                      <Image
+                        src={project.image.url}
+                        alt={project.image.alt}
+                        width={1080}
+                        height={674.6}
+                        priority={false}
+                      />
+                    }
+                  </a>
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </Section>
 
       <Section id="contacto" className="contact">

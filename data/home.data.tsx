@@ -118,16 +118,46 @@ export const homeData = {
         title: "Landing Page",
         price: "$249",
         items: [
-          "Página Vertical",
-          "Diseño personalizado",
-          "Diseño adaptable a dispositivos moviles",
-          "Formulario de contacto",
-          "Integración de Redes Sociales",
-          "Mapa de ubicación",
-          "Hosting Gratis - 1 año",
-          "Dominio (.com - .net - .org) Gratis - 1 año",
-          "SSL - Secure Sockets Layer",
-          "SEO (Search Engine Optimización)"
+          {
+            id: "001-item",
+            text: "Página Vertical",
+          },
+          {
+            id: "002-item",
+            text: "Diseño personalizado",
+          },
+          {
+            id: "003-item",
+            text: "Diseño adaptable a dispositivos moviles",
+          },
+          {
+            id: "004-item",
+            text: "Formulario de contacto",
+          },
+          {
+            id: "005-item",
+            text: "Integración de Redes Sociales WhatsApp & Messenger",
+          },
+          {
+            id: "006-item",
+            text: "Mapa de ubicación",
+          },
+          {
+            id: "007-item",
+            text: "Hosting Gratis - 1 año",
+          },
+          {
+            id: "008-item",
+            text: "Dominio (.com - .net - .org) Gratis - 1 año",
+          },
+          {
+            id: "009-item",
+            text: "SSL - Secure Sockets Layer",
+          },
+          {
+            id: "010-item",
+            text: "SEO (Search Engine Optimización)",
+          },
         ]
       },
       {
@@ -135,16 +165,46 @@ export const homeData = {
         title: "Básico",
         price: "$399",
         items: [
-          "5 Páginas",
-          "Diseño personalizado",
-          "Diseño adaptable a dispositivos moviles",
-          "Formulario de contacto",
-          "Integración de Redes Sociales WhatsApp & Messenger",
-          "Mapa de ubicación",
-          "Hosting Gratis - 1 año",
-          "Dominio (.com - .net - .org) Gratis - 1 año",
-          "SSL - Secure Sockets Layer",
-          "SEO (Search Engine Optimización)"
+          {
+            id: "001-item",
+            text: "5 Páginas",
+          },
+          {
+            id: "002-item",
+            text: "Diseño personalizado",
+          },
+          {
+            id: "003-item",
+            text: "Diseño adaptable a dispositivos moviles",
+          },
+          {
+            id: "004-item",
+            text: "Formulario de contacto",
+          },
+          {
+            id: "005-item",
+            text: "Integración de Redes Sociales WhatsApp & Messenger",
+          },
+          {
+            id: "006-item",
+            text: "Mapa de ubicación",
+          },
+          {
+            id: "007-item",
+            text: "Hosting Gratis - 1 año",
+          },
+          {
+            id: "008-item",
+            text: "Dominio (.com - .net - .org) Gratis - 1 año",
+          },
+          {
+            id: "009-item",
+            text: "SSL - Secure Sockets Layer",
+          },
+          {
+            id: "010-item",
+            text: "SEO (Search Engine Optimización)",
+          },
         ]
       },
       {
@@ -152,20 +212,89 @@ export const homeData = {
         title: "Avanzado",
         price: "$499",
         items: [
-          "Páginas Dinamicas",
-          "Diseño personalizado",
-          "Diseño adaptable a dispositivos moviles",
-          "Formulario de contacto",
-          "Integración de Redes Sociales WhatsApp & Messenger",
-          "Sección de productos",
-          "Ventas por WhatsApp",
-          "Mapa de ubicación",
-          "Hosting Gratis - 1 año",
-          "Dominio (.com - .net - .org) Gratis - 1 año",
-          "SSL - Secure Sockets Layer",
-          "SEO (Search Engine Optimización)"
+          {
+            id: "001-item",
+            text: "Páginas Dinamicas",
+          },
+          {
+            id: "002-item",
+            text: "Diseño personalizado",
+          },
+          {
+            id: "003-item",
+            text: "Diseño adaptable a dispositivos moviles",
+          },
+          {
+            id: "004-item",
+            text: "Formulario de contacto",
+          },
+          {
+            id: "005-item",
+            text: "Sección de productos",
+          },
+          {
+            id: "006-item",
+            text: "Integración de Redes Sociales WhatsApp & Messenger",
+          },
+          {
+            id: "007-item",
+            text: "Ventas por WhatsApp",
+          },
+          {
+            id: "008-item",
+            text: "Mapa de ubicación",
+          },
+          {
+            id: "009-item",
+            text: "Hosting Gratis - 1 año",
+          },
+          {
+            id: "010-item",
+            text: "Dominio (.com - .net - .org) Gratis - 1 año",
+          },
+          {
+            id: "011-item",
+            text: "SSL - Secure Sockets Layer",
+          },
+          {
+            id: "012-item",
+            text: "SEO (Search Engine Optimización)",
+          },
         ]
       },
+    ]
+  },
+
+  portfolio: {
+    title: "Proyectos realizados",
+    projectList: [
+      {
+        id: "001-project",
+        name: "Elite Tour WW",
+        image: {
+          url: "/assets/portfolio/EliteTourWW.png",
+          alt: "Elite Tour proyecto vipacio"
+        },
+        link: "https://elitetourww.com",
+      },
+      {
+        id: "002-project",
+        name: "HMComputer",
+        image: {
+          url: "/assets/portfolio/HMComputer.png",
+          alt: "HMComputer proyecto vipacio"
+        },
+        link: "https://hm-computer.com",
+      },
+      {
+        id: "003-project",
+        name: "Bolt Agro",
+        image: {
+          url: "/assets/portfolio/BoltAgro.png",
+          alt: "Bolt Agro proyecto vipacio"
+        },
+        link: "https://boltagro.com",
+      }
     ]
   }
 }
