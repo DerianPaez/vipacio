@@ -448,6 +448,11 @@ const HomeStyled = styled.div`
       position: relative;
       display: block;
       width: 100%;
+      transition: .3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
 
       a {
         width: 100%;
