@@ -30,7 +30,6 @@ const HomeStyled = styled.div`
 
     .hero__content {
       display: grid;
-      justify-content: center;
       gap: 10px;
     }
 
@@ -41,7 +40,6 @@ const HomeStyled = styled.div`
     }
 
     .hero__button {
-      justify-self: center;
       color: ${({ theme }) => theme.colors.secundaryLight};
 
       &:hover {
@@ -68,6 +66,14 @@ const HomeStyled = styled.div`
     @media (min-width: 768px) {
       .hero__container {
         text-align: center;
+      }
+
+      .hero__content {
+        justify-content: center;
+
+        a {
+          justify-self: center;
+        }
       }
 
       .hero__title {
