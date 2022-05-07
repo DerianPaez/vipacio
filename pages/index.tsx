@@ -1,16 +1,21 @@
 import * as React from 'react'
+import * as Yup from 'yup'
 import styled from 'styled-components'
 import Image from 'next/image'
 import Typed from 'typed.js'
+import { useFormik } from 'formik'
 
 // Data
 import { homeData } from '@data/home.data'
 
 // Icons
-import { Hr } from '@components/icons'
+import { Facebook, Hr, Instagram, WhatsApp } from '@components/icons'
 
 // Components
-import { Button, Section } from '@components/common'
+import { Button, Input, Section } from '@components/common'
+import Textarea from '@components/common/Textarea'
+import { socialMedia } from '@data/socialMedia.data'
+import Link from 'next/link'
 
 const HomeStyled = styled.div`
 
@@ -370,7 +375,7 @@ const HomeStyled = styled.div`
       gap: 30px;
       padding: 30px 20px;
       background: ${({ theme }) => theme.colors.secundaryLight};
-      box-shadow: 0px 4px 24px 0px #00000040;
+      box-shadow: ${({ theme }) => theme.colors.shadow};
     }
 
     .price__title {
@@ -419,6 +424,11 @@ const HomeStyled = styled.div`
   }
 
   .portfolio {
+    background-image: url(/assets/BackgroundPortfolio.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 70px 0;
+
     .portfolio__container {
       display: grid;
       gap: 30px;
@@ -426,6 +436,7 @@ const HomeStyled = styled.div`
 
     .portfolio__title {
       text-align: center;
+      color: ${({ theme }) => theme.colors.secundaryLight};
     }
 
     .portfolio__list {
@@ -450,7 +461,140 @@ const HomeStyled = styled.div`
     }
   }
 
-  .contact {}
+  .contact {
+    .contact__container {
+      display: grid;
+      gap: 30px;
+    }
+
+    .contact__form {
+      display: grid;
+      gap: 30px;
+      background-color: ${({ theme }) => theme
+    .colors.secundaryLight};
+      box-shadow: ${({ theme }) => theme.colors.shadow};
+      padding: 40px 20px;
+    }
+
+    .form {
+      display: grid;
+      grid-template-areas:
+        "name"
+        "phone"
+        "email"
+        "message"
+        "button";
+      gap: 20px;
+    }
+
+    .name { grid-area: name; }
+    .phone { grid-area: phone; }
+    .email { grid-area: email; }
+    .message { grid-area: message; }
+    .button { grid-area: button; }
+    .line { grid-area: line; display: none }
+
+    .contact__info {
+      display: grid;
+      grid-auto-flow: row;
+      grid-auto-rows: max-content;
+      gap: 20px;
+      height: 100%;
+      background-color: ${({ theme }) => theme
+    .colors.secundaryLight};
+      box-shadow: ${({ theme }) => theme.colors.shadow};
+      padding: 40px 20px;
+    }
+
+    .info {
+      display: grid;
+      gap: 10px;
+    }
+
+    .info__header {
+      display: grid;
+      gap: 0px;
+    }
+
+    .info__list {
+      display: grid;
+      gap: 5px;
+    }
+
+    .info__item {
+      list-style: disc;
+      margin-left: 25px;
+
+      a {
+        width: 100%;
+      }
+    }
+
+    .socialMedia__list {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      gap: 13px;
+    }
+
+    .socialMedia__item {
+      a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid ${({ theme }) => theme.colors.black};
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        path {
+          fill: ${({ theme }) => theme.colors.black}
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      /*  */
+    }
+
+    @media (min-width: 1024px) {
+      .contact__container {
+        grid-template-columns: 1.7fr 1fr;
+      }
+
+      .contact__form,
+      .contact__info {
+        padding: 40px;
+      }
+
+      .form {
+        grid-template-areas:
+          "name line message"
+          "phone line message"
+          "email line button";
+        grid-template-columns: 1fr max-content 1fr;
+        gap: 20px 40px;
+      }
+
+      .line {
+        display: block;
+        width: 1px;
+        height: 100%;
+        background-color: ${({ theme }) => theme.colors.black};
+      }
+
+      .message {
+        textarea {
+          height: 100%;
+          border-bottom: none;
+        }
+      }
+
+      .button {
+        align-self: flex-end;
+      }
+    }
+  }
 `
 
 const Home: React.FC = () => {
@@ -472,6 +616,18 @@ const Home: React.FC = () => {
       typed.destroy()
     }
   }, [])
+
+  const initialValues = { name: '', phone: '', email: '', message: '' }
+  const validationSchema = Yup.object({
+    name: Yup.string(),
+    phone: Yup.string(),
+    email: Yup.string().email('Correo Invalido'),
+    message: Yup.string().required('El mensaje es Obligatorio')
+  })
+  const onSubmit = (values: any, actions: any) => {
+    console.log(values)
+  }
+  const formik = useFormik({ initialValues, validationSchema, onSubmit })
 
   return (
     <HomeStyled>
@@ -664,7 +820,80 @@ const Home: React.FC = () => {
       </Section>
 
       <Section id="contacto" className="contact">
-        <div className="contact__container"></div>
+        <div className="contact__container">
+
+          <div className="contact__form">
+            <h2>{homeData.contact.title}</h2>
+            <form className="form" onSubmit={formik.handleSubmit}>
+              <Input id="name" form={formik} className="input name" type="text" name="name" placeholder="John Doe" label="Nombre" />
+              <Input id="phone" form={formik} className="input phone" type="tel" name="phone" placeholder="+593 99 999 9999" label="Celular" />
+              <Input id="email" form={formik} className="input email" type="email" name="email" placeholder="johndoe@dominio.com" label="Email" />
+              <div className="line"></div>
+              <Textarea id="message" form={formik} className="textarea message" name="message" placeholder="Hola, soy John Doe
+Me interesa crear un sitio web para mi empresa...." label="Mensaje" />
+              <Button className="button" type="submit">Enviar</Button>
+            </form>
+          </div>
+
+          <div className="contact__info">
+            <div className="info">
+              <div className="info__header">
+                <h3 className="info__title">{homeData.contact.infoList.phones.title}</h3>
+                <Hr />
+              </div>
+              <ul className="info__list">
+                {homeData.contact.infoList.phones.list.map((phone) => {
+                  return (
+                    <li key={phone.id}   className="info__item">
+                      <a href={`tel:${phone.text.replace(/ /g, '').replace('+', '')}`}>{phone.text}</a>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+
+            <div className="info">
+              <div className="info__header">
+                <h3 className="info__title">{homeData.contact.infoList.emails.title}</h3>
+                <Hr />
+              </div>
+              <ul className="info__list">
+                {homeData.contact.infoList.emails.list.map((email) => {
+                  return (
+                    <li key={email.id} className="info__item">
+                      <a href={`mailto:${email.text}`}>{email.text}</a>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+
+            <div className="info">
+              <div className="info__header">
+                <h3 className="info__title">{socialMedia.title}</h3>
+                <Hr />
+              </div>
+              <ul className="socialMedia__list">
+                <li className="socialMedia__item">
+                  <a href={socialMedia.Facebook.url} target="_blank" rel="noreferrer" >
+                    <Facebook width="17" height="17" />
+                  </a>
+                </li>
+                <li className="socialMedia__item">
+                  <a href={socialMedia.Instagram.url} target="_blank" rel="noreferrer">
+                    <Instagram width="17" height="17" />
+                  </a>
+                </li>
+                <li className="socialMedia__item">
+                  <a href={socialMedia.WhatsApp.url} target="_blank" rel="noreferrer">
+                    <WhatsApp width="17" height="17"/>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
       </Section>
     </HomeStyled>
   )

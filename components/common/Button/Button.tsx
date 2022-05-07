@@ -13,6 +13,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const ButtonStyled = styled.button<ButtonProps>`
+  height: min-content;
   background-color: transparent;
   color: ${({ theme }) => theme.colors.black};
   font-weight: 600;

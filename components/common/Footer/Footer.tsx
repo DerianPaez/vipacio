@@ -1,11 +1,12 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 // Config
 import { Wrapper } from '@config/themeConfig'
 
 // Icons
-import { Facebook, Instagram, Logo, WhatsApp } from '@components/icons'
+import { Logo } from '@components/icons'
 
 type Props = {
 
@@ -42,30 +43,47 @@ const FooterStyled = styled.footer`
     gap: 10px;
   }
 
-  .wrapper {
+  .footer__rights {
+    p {
+      color: ${({ theme }) => theme.colors.secundaryLight};
+    }
+
+    a {
+      width: max-content;
+    }
+  }
+
+  .footer__links {
     display: grid;
-    gap: 5px;
-  }
-
-  .footer__rights span {
-    line-height: 15px;
-  }
-
-  .footer__rights span {
-    color: white;
-    font-size: .9em;
-  }
-
-  .footer__icons {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: max-content;
-    gap: 10px;
     justify-content: center;
-    align-items: center;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .legal__links {
+    color: ${({ theme }) => theme.colors.secundaryLight};
+    font-size: 14px;
+    &:hover {
+      color: #d4d4d4;
+    }
   }
 
   @media (min-width: 768px) {
+    .separator {
+      display: block;
+    }
+
+    .footer__links {
+      grid-template-columns: min-content max-content min-content;
+      grid-auto-flow: column;
+      grid-auto-columns: min-content;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
+    }
+
     .footer__content {
       grid-template-columns: 1fr;
       justify-content: space-between;
@@ -74,6 +92,15 @@ const FooterStyled = styled.footer`
     .footer__content .wrapper{
       grid-template-columns: max-content max-content;
       justify-content: space-between;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer__rights {
+      display: grid;
+      grid-template-columns: max-content max-content;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 `
@@ -88,19 +115,21 @@ const Footer: React.FC<Props> = () => {
       <div className="footer__content">
         <Wrapper className="wrapper">
           <div className="footer__rights">
-            <span>© 2022 Copyright Vipacio All rights reserved</span>
-          </div>
+            <p>© 2022 Copyright Vipacio All rights reserved</p>
 
-          <div className="footer__icons">
-            <a href="https://www.facebook.com/Vipacio/" target="_blank" rel="noopener noreferrer">
-              <Facebook />
-            </a>
-            <a href="https://www.instagram.com/vipacio/" target="_blank" rel="noopener noreferrer">
-              <Instagram />
-            </a>
-            <a href="https://" target="_blank" rel="noopener noreferrer">
-              <WhatsApp />
-            </a>
+            <div className="footer__links">
+              <Link href="/privacidad">
+                <a className="legal__links">
+                  Políticas de privacidad
+                </a>
+              </Link>
+              <p className="separator">|</p>
+              <Link href="/terminos">
+                <a className="legal__links">
+                  Términos y condiciones
+                </a>
+              </Link>
+            </div>
           </div>
         </Wrapper>
       </div>

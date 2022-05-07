@@ -1,6 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 // Config
 import { Wrapper } from '@config/themeConfig'
@@ -10,12 +11,10 @@ import { Logo, Menu } from '@components/icons'
 
 // Hooks
 import useUi from '@hooks/useUi'
-import useWindowScroll from '@hooks/useWindowScroll'
-import Navbar from '../Navbar'
+import useScrollPosition from '@hooks/useScrollPosition'
 
-type HeaderStyledProps = {
-  isHeaderActive: boolean
-}
+// Components
+import { Navbar } from '@components/common'
 
 const HeaderStyled = styled.header`
   position: fixed;
@@ -64,16 +63,26 @@ const HeaderStyled = styled.header`
 
 const Header: React.FC = () => {
   const [isHeaderActive, setHeaderActive] = React.useState(false)
+  const activeHeader = () => setHeaderActive(true)
+  const deactiveHeader = () => setHeaderActive(false)
 
-  const { y } = useWindowScroll()
+  const ScrollY = useScrollPosition()
+
+  const router = useRouter()
+  const isHome = router.asPath === "/"
 
   React.useEffect(() => {
-    if(y > 60) {
-      setHeaderActive(() => true)
+    deactiveHeader()
+    if(isHome) {
+      if(ScrollY > 60) {
+        activeHeader()
+      } else {
+        deactiveHeader()
+      }
     } else {
-      setHeaderActive(() => false)
+      activeHeader()
     }
-  }, [isHeaderActive, y])
+  }, [isHeaderActive, ScrollY, isHome])
 
   const { isSidebarOpen, toogleSidebar } = useUi()
   return (

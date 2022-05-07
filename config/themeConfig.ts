@@ -9,7 +9,10 @@ export const defaultTheme = {
     paragraph: '#5F5F5F',
     accent: '#05FF00',
     stroke: '#333333',
-    shadow: '',
+    label: '#565656',
+    placeholder: '#ABABAB',
+    shadow: '0px 4px 24px 0px #00000040',
+    error: 'red',
   },
   positions: {
     header: 1000,
@@ -26,7 +29,7 @@ export const Wrapper = styled.div`
 export const H2 = styled.h2`
   font-size: 28px;
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.secundaryDark};
+  color: ${({ theme }) => theme.colors.black};
 
   @media (min-width: 768px) {
     font-size: 32px;

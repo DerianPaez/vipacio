@@ -1,3 +1,8 @@
+export enum FormElements {
+  Input = "input",
+  Textarea = "textarea",
+}
+
 export const homeData = {
   hero: {
     headline: "Desarrollo web",
@@ -296,5 +301,38 @@ export const homeData = {
         link: "https://boltagro.com",
       }
     ]
+  },
+
+  contact: {
+    title: "Contáctanos",
+    infoList: {
+      phones: {
+        title: "Celulares",
+        list: [
+          {
+            id: "001-phone",
+            text: "+593 99 984 0677",
+          },
+          {
+            id: "002-phone",
+            text: "+593 99 012 7109",
+          },
+        ],
+      },
+
+      emails: {
+        title: "Email",
+        list: [
+          {
+            id: "001-email",
+            text: "contacto@vipacio.com",
+          },
+          {
+            id: "002-email",
+            text: "soporte@vipacio.com",
+          },
+        ]
+      }
+    }
   }
 }

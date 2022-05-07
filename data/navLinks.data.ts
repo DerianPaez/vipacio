@@ -16,7 +16,7 @@ export const navLinks = [
   {
     id: '001',
     name: 'Inicio',
-    url: '/#'
+    url: '/'
   },
   {
     id: '002',

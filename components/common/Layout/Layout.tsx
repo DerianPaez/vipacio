@@ -6,6 +6,7 @@ import { Header, Footer } from '@components/common/'
 
 // Hooks
 import useUi from '@hooks/useUi'
+import { useRouter } from 'next/router'
 
 type StyledProps = {
   isSidebarOpen: boolean

@@ -19,7 +19,8 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.5",
-    "typed.js": "^2.0.12"
+    "typed.js": "^2.0.12",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "17.0.23",
