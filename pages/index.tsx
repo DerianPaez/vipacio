@@ -559,7 +559,13 @@ const HomeStyled = styled.div`
     }
 
     @media (min-width: 768px) {
-      /*  */
+      .form {
+        grid-template-areas:
+          "name phone"
+          "email email"
+          "message message"
+          "button button";
+      }
     }
 
     @media (min-width: 1024px) {
