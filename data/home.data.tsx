@@ -141,7 +141,7 @@ export const homeData = {
           },
           {
             id: "005-item",
-            text: "Integración de Redes Sociales WhatsApp & Messenger",
+            text: "Integración de Redes Sociales",
           },
           {
             id: "006-item",
@@ -188,7 +188,7 @@ export const homeData = {
           },
           {
             id: "005-item",
-            text: "Integración de Redes Sociales WhatsApp & Messenger",
+            text: "Integración de Redes Sociales",
           },
           {
             id: "006-item",
@@ -235,11 +235,11 @@ export const homeData = {
           },
           {
             id: "005-item",
-            text: "Sección de productos",
+            text: "Integración de Redes Sociales ",
           },
           {
             id: "006-item",
-            text: "Integración de Redes Sociales WhatsApp & Messenger",
+            text: "Sección de productos",
           },
           {
             id: "007-item",

@@ -425,8 +425,8 @@ const HomeStyled = styled.div`
 
   .portfolio {
     background-image: url(/assets/BackgroundPortfolio.png);
-    background-size: 100%;
     background-repeat: no-repeat;
+    background-size: cover;
     padding: 70px 0;
 
     .portfolio__container {
