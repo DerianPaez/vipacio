@@ -15,14 +15,17 @@ type StyledProps = {
 }
 
 const NavbarStyled = styled.nav<StyledProps>`
-  display: ${({ isOpen }) => isOpen ? 'grid' : 'none'};
+  /* display: ${({ isOpen }) => isOpen ? 'grid' : 'none'}; */
+  display: grid;
   position: fixed;
-  top: 0;
+  top: ${({ isOpen }) => isOpen ? '0' : '-100vh'};
+  height: 100vh;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: -1;
   background-color: ${({ theme }) => theme.colors.primary};
+  transition: top .5s;
 
   .navbar__container {
     height: 100%;
@@ -36,11 +39,11 @@ const NavbarStyled = styled.nav<StyledProps>`
     gap: 15px;
     text-align: center;
     align-self: center;
-    margin-bottom: 42px;
   }
 
   @media (min-width: 1024px) {
     width: 100%;
+    height: 100%;
     display: grid;
     position: static;
     top: 0;

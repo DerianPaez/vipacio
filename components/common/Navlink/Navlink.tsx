@@ -26,7 +26,7 @@ const NavlinkStyled = styled.li`
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     a {
       font-size: 14px;
     }
