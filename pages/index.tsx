@@ -3,6 +3,7 @@ import * as Yup from 'yup'
 import styled from 'styled-components'
 import Image from 'next/image'
 import Typed from 'typed.js'
+import axios from 'axios'
 import { useFormik } from 'formik'
 
 // Data
@@ -15,7 +16,6 @@ import { Facebook, Hr, Instagram, WhatsApp } from '@components/icons'
 import { Button, Input, Section } from '@components/common'
 import Textarea from '@components/common/Textarea'
 import { socialMedia } from '@data/socialMedia.data'
-import Link from 'next/link'
 
 const HomeStyled = styled.div`
 
@@ -616,6 +616,10 @@ const HomeStyled = styled.div`
 
 const Home: React.FC = () => {
   const el = React.useRef(null)
+  const [serverState, setServerState] = React.useState({})
+  const handleServerResponse = (ok: boolean, msg: string) => {
+    setServerState({ok, msg});
+  }
 
   React.useEffect(() => {
     const typed = new Typed((el.current !== null) ? el.current : '', {
@@ -642,7 +646,21 @@ const Home: React.FC = () => {
     message: Yup.string().required('El mensaje es Obligatorio')
   })
   const onSubmit = (values: any, actions: any) => {
-    console.log(values)
+    axios({
+      method: "POST",
+      url: "https://formspree.io/f/xgerqwzy",
+      data: values
+    })
+      .then(res => {
+        actions.setSubmitting(false);
+        actions.resetForm();
+        handleServerResponse(true, "Thanks!");
+        alert("Hemos recibido su mensaje, muy pronto nos comunicaremos, Gracias por confiar en nosotros!")
+      })
+      .catch(error => {
+        actions.setSubmitting(false)
+        handleServerResponse(false, error.response.data.error)
+      })
   }
   const formik = useFormik({ initialValues, validationSchema, onSubmit })
 
