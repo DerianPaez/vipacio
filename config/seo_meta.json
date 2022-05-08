@@ -1,25 +1,13 @@
 {
-  "title": "Template Title",
-  "titleTemplate": "%s - ACME Storefront",
-  "description": "Template to create WebSites of James Loor",
+  "title": "Vipacio | Desarrollo web",
+  "description": "Vipacio - Somos un equipo de programadores especializados en el area de desarrollo aplicaciones web, Ecommerce, SEO, etc.  WhatsApp: 098 880 6063",
+  "keywords": "web, páginas web, paginas web, pagina web, página web, desarrollo web, desarrolladores web, programación, programadores, SEO, posicionamiento en buscadores, apps web, aplicaciones web, comercio electronico, ecommerce, tienda virtual, sitios web, sitio web, programadores web, Ecuador, Guayaquil, alojamiento web, lanzamiento web, página, pagina",
   "openGraph": {
-    "title": "Template Next Js - Styled Components - Typescript",
-    "description": "Template to create WebSites of James Loor",
+    "title": "Vipacio | Desarrollo web",
+    "description": "Vipacio - Somos un equipo de programadores especializados en el area de desarrollo de aplicaciones web (Landing page, Eccomerce - tienda online, Blogs, etc.) WhatsApp: 098 880 6063",
     "type": "website",
-    "url": "https://nextjs.org/commerce",
-    "site_name": "Template Nextjs",
-    "images": [
-      {
-        "url": "/card.png",
-        "width": "800",
-        "height": "600",
-        "alt": "Next.js Commerce"
-      }
-    ]
-  },
-  "twitter": {
-    "handle": "@nextjs",
-    "site": "@nextjs",
-    "cardType": "summary_large_image"
+    "url": "https://vipacio.com",
+    "site_name": "Vipacio | Desarrollo web",
+    "locale": "es_ES"
   }
 }

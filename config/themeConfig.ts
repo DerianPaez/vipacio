@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
 
 export const H2 = styled.h2`
   font-size: 28px;
-  font-weight: 500;
+  font-weight: 600;
   color: ${({ theme }) => theme.colors.black};
 
   @media (min-width: 768px) {

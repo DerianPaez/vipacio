@@ -109,7 +109,11 @@ const Footer: React.FC<Props> = () => {
   return (
     <FooterStyled>
       <div className="footer__logo">
-        <Logo className="logo" />
+        <Link href="/">
+          <a>
+            <Logo className="logo" />
+          </a>
+        </Link>
       </div>
 
       <div className="footer__content">

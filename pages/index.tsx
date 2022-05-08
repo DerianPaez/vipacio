@@ -6,6 +6,9 @@ import Typed from 'typed.js'
 import axios from 'axios'
 import { useFormik } from 'formik'
 
+// Theme
+import { H2 } from '@config/themeConfig'
+
 // Data
 import { homeData } from '@data/home.data'
 
@@ -660,6 +663,7 @@ const Home: React.FC = () => {
       .catch(error => {
         actions.setSubmitting(false)
         handleServerResponse(false, error.response.data.error)
+        alert("Oops! Ocurrio un error al enviar su mensaje, intente de nuevo.")
       })
   }
   const formik = useFormik({ initialValues, validationSchema, onSubmit })
@@ -669,7 +673,7 @@ const Home: React.FC = () => {
       <Section className="hero">
         <div className="hero__container">
           <div className="hero__content">
-            <h2 className='hero__title'>{homeData.hero.headline} <span className="typed" ref={el}></span></h2>
+            <h1 className='hero__title'>{homeData.hero.headline} <span className="typed" ref={el}></span></h1>
             <p className='hero__description'>{homeData.hero.description}</p>
             <Button href="#servicios" className="hero__button">{homeData.hero.button}</Button>
           </div>
@@ -680,7 +684,7 @@ const Home: React.FC = () => {
         <div className="aboutUs__container">
           <div className="aboutUs__content">
             <div className="aboutUs__main">
-              <h2 className="aboutUs__h2">{homeData.aboutUs.title}</h2>
+              <H2 className="aboutUs__h2">{homeData.aboutUs.title}</H2>
               <div className="aboutUs__text">
                 <p>{homeData.aboutUs.text[0]}</p>
                 <br />
@@ -720,7 +724,7 @@ const Home: React.FC = () => {
       <Section id="servicios" className="services">
         <div className="services__container">
           <div className="services__content">
-            <h2 data-aos="fade-up-right" className="title__h2">Servicios</h2>
+            <H2 data-aos="fade-up-right" className="title__h2">Servicios</H2>
 
             <div data-aos="fade-up-right" className="services__list">
               {homeData.services.serviceList.map((service) => {
@@ -753,14 +757,14 @@ const Home: React.FC = () => {
 
       <Section className="publicity">
         <div className="publicity__container">
-          <h2>{homeData.publicity.title}</h2>
+          <H2>{homeData.publicity.title}</H2>
           <Button href={homeData.publicity.button.url}>{homeData.publicity.button.text}</Button>
         </div>
       </Section>
 
       <Section className="processWork">
         <div className="processWork__container">
-          <h2 className="processWork__title">{homeData.processWork.title}</h2>
+          <H2 className="processWork__title">{homeData.processWork.title}</H2>
           <div className="processWork__left">
             {homeData.processWork.processList.slice(0, 3).map((process) => {
               return (
@@ -803,7 +807,7 @@ const Home: React.FC = () => {
 
       <Section id="precios" className="prices">
         <div className="prices__container">
-          <h2 className="prices__title">{homeData.prices.title}</h2>
+          <H2 className="prices__title">{homeData.prices.title}</H2>
           <div className="prices__list">
             {homeData.prices.pricesList.map((price) => {
               return (
@@ -830,7 +834,7 @@ const Home: React.FC = () => {
 
       <Section id="portafolio" className="portfolio">
         <div className="portfolio__container">
-          <h2 className="portfolio__title">{homeData.portfolio.title}</h2>
+          <H2 className="portfolio__title">{homeData.portfolio.title}</H2>
 
           <div className="portfolio__list">
             {homeData.portfolio.projectList.map((project) => {
@@ -858,7 +862,7 @@ const Home: React.FC = () => {
         <div className="contact__container">
 
           <div className="contact__form">
-            <h2>{homeData.contact.title}</h2>
+            <H2>{homeData.contact.title}</H2>
             <form className="form" onSubmit={formik.handleSubmit}>
               <Input id="name" form={formik} className="input name" type="text" name="name" placeholder="John Doe" label="Nombre" />
               <Input id="phone" form={formik} className="input phone" type="tel" name="phone" placeholder="+593 99 999 9999" label="Celular" />
