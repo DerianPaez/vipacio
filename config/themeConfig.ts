@@ -27,16 +27,16 @@ export const Wrapper = styled.div`
 `
 
 export const H2 = styled.h2`
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.black};
 
   @media (min-width: 768px) {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   @media (min-width: 1024px) {
-    font-size: 40px;
+    font-size: 36px;
   }
 `
 
