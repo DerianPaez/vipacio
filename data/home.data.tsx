@@ -161,7 +161,7 @@ export const homeData = {
           },
           {
             id: "010-item",
-            text: "SEO (Search Engine Optimización)",
+            text: "SEO (Search Engine Optimization)",
           },
         ],
       },
@@ -208,7 +208,7 @@ export const homeData = {
           },
           {
             id: "010-item",
-            text: "SEO (Search Engine Optimización)",
+            text: "SEO (Search Engine Optimization)",
           },
         ]
       },
@@ -263,7 +263,7 @@ export const homeData = {
           },
           {
             id: "012-item",
-            text: "SEO (Search Engine Optimización)",
+            text: "SEO (Search Engine Optimization)",
           },
         ]
       },
