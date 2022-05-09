@@ -810,6 +810,9 @@ const Home: React.FC = () => {
           <H2 className="prices__title">{homeData.prices.title}</H2>
           <div className="prices__list">
             {homeData.prices.pricesList.map((price) => {
+              const phone = "+593963310383"
+              const message = `Necesito más información sobre la página web - ${price.title}.`
+              const buttonUrl = `https://wa.me/${phone}?text=${encodeURI(message)}`
               return (
                 <article key={price.id} className="price">
                   <div className="price__header">
@@ -824,7 +827,9 @@ const Home: React.FC = () => {
                       )
                     })}
                   </ul>
-                  <Button>Consultar</Button>
+                  <a href={buttonUrl} target="_blank">
+                    <Button>Consultar</Button>
+                  </a>
                 </article>
               )
             })}

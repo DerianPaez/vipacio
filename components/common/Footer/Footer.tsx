@@ -46,6 +46,7 @@ const FooterStyled = styled.footer`
   .footer__rights {
     p {
       color: ${({ theme }) => theme.colors.secundaryLight};
+      font-size: 14px;
     }
 
     a {

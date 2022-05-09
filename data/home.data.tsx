@@ -163,7 +163,7 @@ export const homeData = {
             id: "010-item",
             text: "SEO (Search Engine Optimización)",
           },
-        ]
+        ],
       },
       {
         id: "002",
