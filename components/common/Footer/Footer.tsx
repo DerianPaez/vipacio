@@ -44,6 +44,9 @@ const FooterStyled = styled.footer`
   }
 
   .footer__rights {
+    display: grid;
+    gap: 10px;
+
     p {
       color: ${({ theme }) => theme.colors.secundaryLight};
       font-size: 14px;
@@ -66,8 +69,9 @@ const FooterStyled = styled.footer`
   .legal__links {
     color: ${({ theme }) => theme.colors.secundaryLight};
     font-size: 14px;
+    transition: color .3s;
     &:hover {
-      color: #d4d4d4;
+      color: ${({ theme }) => theme.colors.accent};
     }
   }
 

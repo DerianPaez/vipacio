@@ -541,6 +541,11 @@ const HomeStyled = styled.div`
 
       a {
         width: 100%;
+        transition: color .3s;
+
+        &:hover {
+          color: ${({ theme }) => theme.colors.accent};
+        }
       }
     }
 
@@ -560,9 +565,19 @@ const HomeStyled = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+        transition:  .3s;
 
         path {
+          transition:  .3s;
           fill: ${({ theme }) => theme.colors.black}
+        }
+
+        &:hover {
+          border-color: ${({ theme }) => theme.colors.accent};
+
+          path {
+            fill: ${({ theme }) => theme.colors.accent}
+          }
         }
       }
     }
