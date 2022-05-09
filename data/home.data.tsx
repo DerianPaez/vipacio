@@ -121,7 +121,7 @@ export const homeData = {
       {
         id: "001",
         title: "Landing Page",
-        price: "$249",
+        price: "$349",
         items: [
           {
             id: "001-item",
@@ -168,7 +168,7 @@ export const homeData = {
       {
         id: "002",
         title: "Básico",
-        price: "$399",
+        price: "$499",
         items: [
           {
             id: "001-item",
@@ -215,7 +215,7 @@ export const homeData = {
       {
         id: "003",
         title: "Avanzado",
-        price: "$499",
+        price: "$599",
         items: [
           {
             id: "001-item",
