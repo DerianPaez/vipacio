@@ -904,7 +904,7 @@ Me interesa crear un sitio web para mi empresa...." label="Mensaje" />
                 {homeData.contact.infoList.phones.list.map((phone) => {
                   return (
                     <li key={phone.id}   className="info__item">
-                      <a href={`tel:${phone.text.replace(/ /g, '').replace('+', '')}`}>{phone.text}</a>
+                      <a href={`tel:${phone.text.replace(/ /g, '')}`}>{phone.text}</a>
                     </li>
                   )
                 })}
