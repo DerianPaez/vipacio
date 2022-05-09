@@ -1,7 +1,9 @@
+import "aos/dist/aos.css";
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
+import AOS from 'aos'
 
 // Assets
 import '@assets/globals.css'
@@ -24,6 +26,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   React.useEffect(() => {
     const interval = setTimeout(() => setIsLoading(true), 1500)
     return () => clearTimeout(interval)
+  })
+
+  React.useEffect(() => {
+    AOS.init();
+    AOS.refresh();
   })
 
   return (

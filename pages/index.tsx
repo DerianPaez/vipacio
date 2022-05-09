@@ -476,6 +476,7 @@ const HomeStyled = styled.div`
   }
 
   .contact {
+    padding-bottom: 20px;
     .contact__container {
       display: grid;
       gap: 30px;
@@ -687,7 +688,7 @@ const Home: React.FC = () => {
     <HomeStyled>
       <Section className="hero">
         <div className="hero__container">
-          <div className="hero__content">
+          <div data-aos="fade-left" className="hero__content">
             <h1 className='hero__title'>{homeData.hero.headline} <span className="typed" ref={el}></span></h1>
             <p className='hero__description'>{homeData.hero.description}</p>
             <Button href="#servicios" className="hero__button">{homeData.hero.button}</Button>
@@ -697,7 +698,7 @@ const Home: React.FC = () => {
 
       <Section id="nosotros" className="aboutUs">
         <div className="aboutUs__container">
-          <div className="aboutUs__content">
+          <div data-aos="fade-up-left" className="aboutUs__content">
             <div className="aboutUs__main">
               <H2 className="aboutUs__h2">{homeData.aboutUs.title}</H2>
               <div className="aboutUs__text">
@@ -722,7 +723,7 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <figure className="aboutUs__image">
+          <figure data-aos="fade-up-right" className="aboutUs__image">
             {homeData.aboutUs.image &&
               <Image
                 src={homeData.aboutUs.image.url}
@@ -771,7 +772,7 @@ const Home: React.FC = () => {
       </Section>
 
       <Section className="publicity">
-        <div className="publicity__container">
+        <div data-aos="fade-up-right" className="publicity__container">
           <H2>{homeData.publicity.title}</H2>
           <Button href={homeData.publicity.button.url}>{homeData.publicity.button.text}</Button>
         </div>
@@ -780,7 +781,7 @@ const Home: React.FC = () => {
       <Section className="processWork">
         <div className="processWork__container">
           <H2 className="processWork__title">{homeData.processWork.title}</H2>
-          <div className="processWork__left">
+          <div data-aos="fade-right" className="processWork__left">
             {homeData.processWork.processList.slice(0, 3).map((process) => {
               return (
                 <div key={process.id} className="process">
@@ -793,7 +794,7 @@ const Home: React.FC = () => {
               )
             })}
           </div>
-          <div className="processWork__center">
+          <div data-aos="fade-down" className="processWork__center">
             {homeData.processWork.image &&
               <Image
                 src={homeData.processWork.image.url}
@@ -804,7 +805,7 @@ const Home: React.FC = () => {
               />
             }
           </div>
-          <div className="processWork__right">
+          <div data-aos="fade-left" className="processWork__right">
             {homeData.processWork.processList.slice(3).map((process) => {
               return (
                 <div key={process.id} className="process">
@@ -829,7 +830,7 @@ const Home: React.FC = () => {
               const message = `Necesito más información sobre la página web - ${price.title}.`
               const buttonUrl = `https://wa.me/${phone}?text=${encodeURI(message)}`
               return (
-                <article key={price.id} className="price">
+                <article data-aos="fade-down" key={price.id} className="price">
                   <div className="price__header">
                     <h3 className="price__title">{price.title}</h3>
                     <p className="price__item"><span>desde</span>{price.price}</p>
@@ -856,7 +857,7 @@ const Home: React.FC = () => {
         <div className="portfolio__container">
           <H2 className="portfolio__title">{homeData.portfolio.title}</H2>
 
-          <div className="portfolio__list">
+          <div data-aos="fade-down" className="portfolio__list">
             {homeData.portfolio.projectList.map((project) => {
               return (
                 <div key={project.id} className="project">
@@ -881,7 +882,7 @@ const Home: React.FC = () => {
       <Section id="contacto" className="contact">
         <div className="contact__container">
 
-          <div className="contact__form">
+          <div data-aos="fade-right" className="contact__form">
             <H2>{homeData.contact.title}</H2>
             <form className="form" onSubmit={formik.handleSubmit}>
               <Input id="name" form={formik} className="input name" type="text" name="name" placeholder="John Doe" label="Nombre" />
@@ -894,7 +895,7 @@ Me interesa crear un sitio web para mi empresa...." label="Mensaje" />
             </form>
           </div>
 
-          <div className="contact__info">
+          <div data-aos="fade-left" className="contact__info">
             <div className="info">
               <div className="info__header">
                 <h3 className="info__title">{homeData.contact.infoList.phones.title}</h3>

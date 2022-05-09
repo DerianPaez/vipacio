@@ -20,6 +20,10 @@ body {
   overscroll-behavior-x: none;
 }
 
+section {
+  overflow: hidden;
+}
+
 a {
   color: #000000;
   text-decoration: none;
