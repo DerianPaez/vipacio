@@ -15,16 +15,28 @@ import { defaultTheme } from '@config/themeConfig'
 
 // Components
 import { Head, Layout } from '@components/common'
+import Preloader from '@components/common/Preloader'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const store = initStore()
+  const [isLoading, setIsLoading] = React.useState(false)
+
+  React.useEffect(() => {
+    const interval = setTimeout(() => setIsLoading(true), 1500)
+    return () => clearTimeout(interval)
+  })
+
   return (
     <Provider store={store}>
       <ThemeProvider theme={defaultTheme}>
         <Head />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        {
+          !isLoading
+            ? <Preloader />
+            : <Layout>
+                <Component {...pageProps} />
+              </Layout>
+        }
       </ThemeProvider>
     </Provider>
   )
