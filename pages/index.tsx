@@ -366,6 +366,7 @@ const HomeStyled = styled.div`
   }
 
   .prices {
+    padding-bottom: 40px;
     .prices__container {
       display: grid;
       gap: 30px;
@@ -476,7 +477,7 @@ const HomeStyled = styled.div`
   }
 
   .contact {
-    padding-bottom: 20px;
+    padding-bottom: 40px;
     .contact__container {
       display: grid;
       gap: 30px;
