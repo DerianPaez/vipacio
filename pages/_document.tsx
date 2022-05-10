@@ -1,4 +1,5 @@
 import { FacebookScript } from '@components/common'
+import GoogleAnaliticsScript from '@components/common/GoogleAnaliticsScript'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
@@ -15,6 +16,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
+        <GoogleAnaliticsScript />
         <FacebookScript />
       </Html>
     )
