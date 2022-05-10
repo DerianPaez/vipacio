@@ -10,6 +10,7 @@ declare global {
 const GoogleAnaliticsScript: React.FC = () => {
   const router = useRouter()
 
+  console.log(process.env.GOOGLE__ANALITICS_MEASUREMENT_ID)
   const handleRouteChange = (url: string) => {
     window.gtag('config', `${process.env.GOOGLE_ANALITICS_ID}`, {
       page_path: url,
