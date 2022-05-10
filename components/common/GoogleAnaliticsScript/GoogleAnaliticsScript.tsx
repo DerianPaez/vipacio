@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { useRouter } from 'next/router'
-import Script from 'next/script';
 
 declare global {
   interface Window {
@@ -26,8 +25,8 @@ const GoogleAnaliticsScript: React.FC = () => {
 
   return (
     <>
-      <Script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALITICS_ID}`} />
-      <Script id="google-analytics" dangerouslySetInnerHTML={{
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALITICS_ID}`} />
+      <script id="google-analytics" dangerouslySetInnerHTML={{
         __html: `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
