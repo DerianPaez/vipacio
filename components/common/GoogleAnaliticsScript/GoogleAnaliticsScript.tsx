@@ -1,5 +1,7 @@
 import * as React from 'react'
-import { useRouter } from 'next/router'
+
+// Lib
+import * as gtag from '@lib/gtag'
 
 declare global {
   interface Window {
@@ -8,33 +10,23 @@ declare global {
 }
 
 const GoogleAnaliticsScript: React.FC = () => {
-  const router = useRouter()
-
-  console.log(process.env.GOOGLE__ANALITICS_MEASUREMENT_ID)
-  const handleRouteChange = (url: string) => {
-    window.gtag('config', `${process.env.GOOGLE_ANALITICS_ID}`, {
-      page_path: url,
-    })
-  }
-
-  React.useEffect(() => {
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    }
-  }, [])
-
   return (
     <>
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALITICS_ID}`} />
-      <script id="google-analytics" dangerouslySetInnerHTML={{
-        __html: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${process.env.GOOGLE_ANALITICS_ID}', { page_path: window.location.pathname });
-        `
-      }} />
+      <script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+      />
+      <script
+        id="gtag-init"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gtag.GA_TRACKING_ID}', { page_path: window.location.pathname });
+            `
+        }}
+      />
     </>
   )
 }

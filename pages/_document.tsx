@@ -1,12 +1,12 @@
-import { FacebookScript } from '@components/common'
-import GoogleAnaliticsScript from '@components/common/GoogleAnaliticsScript'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
+import { FacebookScript, GoogleAnaliticsScript } from '@components/common'
 
 class MyDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
+          <GoogleAnaliticsScript />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -16,7 +16,6 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-        <GoogleAnaliticsScript />
         <FacebookScript />
       </Html>
     )
