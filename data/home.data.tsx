@@ -8,31 +8,31 @@ export const homeData = {
     headline: "Desarrollo web",
     typed: ["Personalizado", "De Calidad"],
     description: "Es fácil crear sitios web con nosotros.",
-    button: "Ver más"
+    button: "Ver más",
   },
 
   aboutUs: {
     title: "Sobre nosotros",
     text: [
       "Somos un grupo de amantes de nuestro trabajo y plasmamos esa pasión en cada desarrollo. Actualmente contamos con un equipo de profesionales especializados en diferentes áreas del desarrollo de sitios web, con lo cual aseguramos la calidad de cada trabajo que realizamos",
-      "Diseño web, Desarrollo web, Comercio Electrónico, Posicionamiento en Buscadores, etc."
+      "Diseño web, Desarrollo web, Comercio Electrónico, Posicionamiento en Buscadores, etc.",
     ],
     values: [
       {
         id: "001",
         name: "Misión",
-        text: "Proveer a nuestros clientes de herramientas web que impulsen el desarrollo competitivo y efectivo proporcionando crecimiento a sus negocios internacionalmente"
+        text: "Proveer a nuestros clientes de herramientas web que impulsen el desarrollo competitivo y efectivo proporcionando crecimiento a sus negocios internacionalmente",
       },
       {
         id: "002",
         name: "Visión",
-        text: "Proyectarnos como empresa líder en el desarrollo web, innovando productos de alta calidad que potencien el crecimiento de nuestros clientes."
+        text: "Proyectarnos como empresa líder en el desarrollo web, innovando productos de alta calidad que potencien el crecimiento de nuestros clientes.",
       },
     ],
     image: {
       url: "/assets/AboutUs.png",
-      alt: "Sobre Vipacio"
-    }
+      alt: "Sobre Vipacio",
+    },
   },
 
   services: {
@@ -61,15 +61,15 @@ export const homeData = {
     ],
     image: {
       url: "/assets/Services.png",
-      alt: "Servicios Vipacio"
-    }
+      alt: "Servicios Vipacio",
+    },
   },
 
   publicity: {
     title: "¡Comencemos Tu Proyecto!",
     button: {
       text: "contáctanos",
-      url: "/#contacto"
+      url: "/#contacto",
     },
     background: "/assets/BackgroundPublicity",
   },
@@ -80,38 +80,38 @@ export const homeData = {
       {
         id: "001",
         title: "1. Recopilación de información",
-        text: "Se necesita una buena comprensión de cual es el objetivo del sitio web."
+        text: "Se necesita una buena comprensión de cual es el objetivo del sitio web.",
       },
       {
         id: "002",
         title: "2. Planificación",
-        text: "Se define la estructura del sitio web dando prioridad a los objetivos generales."
+        text: "Se define la estructura del sitio web dando prioridad a los objetivos generales.",
       },
       {
         id: "003",
         title: "3. Diseño",
-        text: "Se determina cual será la apariencia de su sitio web."
+        text: "Se determina cual será la apariencia de su sitio web.",
       },
       {
         id: "004",
         title: "4. Maquetación",
-        text: "Se transforma el diseño del sitio web para que los navegadores puedan interpretarlos."
+        text: "Se transforma el diseño del sitio web para que los navegadores puedan interpretarlos.",
       },
       {
         id: "005",
         title: "5. Desarrollo",
-        text: "Se hace uso de tecnologías de software para agregar interacción al sitio web."
+        text: "Se hace uso de tecnologías de software para agregar interacción al sitio web.",
       },
       {
         id: "006",
         title: "6. Prueba y Lanzamiento",
-        text: "Prueba completa de funcionalidad y lanzamiento del producto final."
+        text: "Prueba completa de funcionalidad y lanzamiento del producto final.",
       },
     ],
     image: {
       url: "/assets/ProcessWork.png",
-      alt: "Proceso de trabajo vipacio"
-    }
+      alt: "Proceso de trabajo vipacio",
+    },
   },
 
   prices: {
@@ -121,7 +121,7 @@ export const homeData = {
       {
         id: "001",
         title: "Landing Page",
-        price: "$249",
+        price: "$349",
         items: [
           {
             id: "001-item",
@@ -168,7 +168,7 @@ export const homeData = {
       {
         id: "002",
         title: "Básico",
-        price: "$399",
+        price: "$449",
         items: [
           {
             id: "001-item",
@@ -210,12 +210,12 @@ export const homeData = {
             id: "010-item",
             text: "SEO (Search Engine Optimization)",
           },
-        ]
+        ],
       },
       {
         id: "003",
         title: "Avanzado",
-        price: "$499",
+        price: "$799",
         items: [
           {
             id: "001-item",
@@ -265,9 +265,9 @@ export const homeData = {
             id: "012-item",
             text: "SEO (Search Engine Optimization)",
           },
-        ]
+        ],
       },
-    ]
+    ],
   },
 
   portfolio: {
@@ -278,7 +278,7 @@ export const homeData = {
         name: "Elite Tour WW",
         image: {
           url: "/assets/portfolio/EliteTourWW.png",
-          alt: "Elite Tour proyecto vipacio"
+          alt: "Elite Tour proyecto vipacio",
         },
         link: "https://elitetourww.com",
       },
@@ -287,7 +287,7 @@ export const homeData = {
         name: "HMComputer",
         image: {
           url: "/assets/portfolio/HMComputer.png",
-          alt: "HMComputer proyecto vipacio"
+          alt: "HMComputer proyecto vipacio",
         },
         link: "https://hm-computer.com",
       },
@@ -296,11 +296,11 @@ export const homeData = {
         name: "Bolt Agro",
         image: {
           url: "/assets/portfolio/BoltAgro.png",
-          alt: "Bolt Agro proyecto vipacio"
+          alt: "Bolt Agro proyecto vipacio",
         },
         link: "https://boltagro.com",
-      }
-    ]
+      },
+    ],
   },
 
   contact: {
@@ -331,8 +331,8 @@ export const homeData = {
             id: "002-email",
             text: "soporte@vipacio.com",
           },
-        ]
-      }
-    }
-  }
-}
+        ],
+      },
+    },
+  },
+};
